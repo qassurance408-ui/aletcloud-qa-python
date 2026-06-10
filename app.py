@@ -1,12 +1,15 @@
+import os
 from flask import Flask
 
 app = Flask(__name__)
 
 @app.route('/python')
 def home():
-    return '''
+    qa_test = os.environ.get('QA_TEST', 'NOT SET')
+    return f'''
     <h1>AletCloud QA - Python Test</h1>
     <p>Framework: Python / Flask</p>
+    <p>QA_TEST env var = <strong>{qa_test}</strong></p>
     '''
 
 if __name__ == '__main__':

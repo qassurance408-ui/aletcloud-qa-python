@@ -4,10 +4,6 @@ from flask import Flask, redirect
 app = Flask(__name__)
 
 @app.route('/')
-def index():
-    return redirect('/python')
-
-@app.route('/python')
 def home():
     qa_test = os.environ.get('QA_TEST', 'NOT SET')
     return f'''
